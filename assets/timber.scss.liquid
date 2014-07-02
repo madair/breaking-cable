@@ -1667,20 +1667,23 @@ body {
   background: #FFF url(background.jpg) top center no-repeat;
 }
 
-.lightning {
-  display: block;
-  width: 500px;
-  height: 500px;
+.wrapper{
+  &.nopadding{
+    padding: 0;
+    .lightning {
+      display: block;
+      width: 1024px;
+      height: 285px;
 
-  position: absolute;
-  top: 0;
-  center: 0;
+      position: absolute;
+      top: 0;
 
-  z-index: 1000;
-  pointer-events: none;
+      z-index: 1000;
+      pointer-events: none;
 
-  background: #FFF url(background.jpg) top center no-repeat;
-  opacity: 0.9;
+      background: transparent url(foreground-bolts.png) top center no-repeat;
+    }
+  }
 }
 
 .site-header{
@@ -1719,21 +1722,28 @@ h1{
     height: 65px;
 
     margin: 0;
-    padding: 24px 0 0 10px;
+    padding: 0;
 
     font-family: $headerFontStack;
     font-size: 23px;
     font-weight: normal;
     text-transform: uppercase;
 
-    background-image: url(sprite.png);
+    background-image: url(bc-sprite.png);
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: 362px 626px;
 
+    &:hover, &.site-nav-active{
+      a, a:visited{
+        color: white;
+      }
+    }
+
     a, a:visited{
-      padding: 0;
+      padding: 24px 0 0 10px !important;
       color: black;
+
     }
 
     &:nth-child(1){
@@ -1742,6 +1752,12 @@ h1{
       margin-right: 12px;
 
       background-position: 0 -114px;
+      &:hover, &.site-nav-active{
+        background-position: -181px -114px;
+      }
+      a, a:visited{
+
+      }
     }
     &:nth-child(2){
       width: 132px;
@@ -1749,21 +1765,38 @@ h1{
       margin-right: 285px;
 
       background-position: 0 -179px;
+      &:hover, &.site-nav-active{
+        background-position: -181px -179px;
+      }
+      a, a:visited{
+        
+      }
     }
     &:nth-child(3){
       width: 161px;
      
       margin-right: 12px;
-      padding-left: 20px;
 
       background-position: 0 -244px;
+      &:hover, &.site-nav-active{
+        background-position: -181px -244px;
+      }
+      a, a:visited{
+        padding-left: 30px !important;
+        
+      }
     }
     &:nth-child(4){
       width: 181px;
 
-      padding-left: 30px;
-
       background-position: 0 -309px;
+      &:hover, &.site-nav-active{
+        background-position: -181px -309px;
+      }
+      a, a:visited{
+        padding-left: 30px !important;
+        
+      }
     }
     // Hides navigation items exceeding 4
     &:nth-child(5), &:nth-child(6){
@@ -1805,7 +1838,7 @@ h1{
         margin: -5px 10px 10px 0;
         padding: 0 0 0 0;
 
-        background-image: url(sprite.png);
+        background-image: url(bc-sprite.png);
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: 362px 626px;
