@@ -1664,10 +1664,18 @@ html{
   background: transparent;
 }
 body {
-  background: #FFF url(background.jpg) top center no-repeat;
+  background: #191919 url(background.jpg) top center no-repeat;
+}
+
+a, a:visited{
+  text-decoration: none;
 }
 
 .wrapper{
+  &.main-content{
+    padding-top: 40px;
+    padding-bottom: 0;
+  }
   &.nopadding{
     padding: 0;
     .lightning {
@@ -1687,7 +1695,8 @@ body {
 }
 
 .site-header{
-  padding: 30px 0 29px 0;
+  height: 81px;
+  padding: 10px 0;
 }
 
 h1{
@@ -1808,7 +1817,7 @@ h1{
 
 // FOOTER
 .site-footer{
-  padding: 0;
+  padding: 4px 0 12px 0;
 
   background: transparent;
   border-top: none;
@@ -1820,22 +1829,27 @@ h1{
         float: right;
         margin: 0;
         padding: 0;
-        a{
+        a, a:visited{
+          display: block;
+          width: 36px;
+          height: 36px;
+
+          color: #2f2f2f;
           font-size: 19px;
           font-family: $headerFontStack;
           text-decoration: none;
-          &:visited{
-
-          }
           &:hover, &:active{
-
+            color: black;
+          }
+          &:last-child{
+            width: auto;
           }
         }
       }
       .social-icon{
         width: 36px;
         height: 36px;
-        margin: -5px 10px 10px 0;
+        margin: -5px 10px 0 0;
         padding: 0 0 0 0;
 
         background-image: url(bc-sprite.png);
@@ -1855,12 +1869,183 @@ h1{
         &.twitter-icon{
           background-position: 0 -590px;
         }
+        &:hover, &:active{
+          opacity: 0.9;
+        }
       }
     }
   }
 }
 
 
+// HOME PAGE
+
+//Quote Boxes Start
+.cornerleft{
+  width: 250px;
+  height: 0px;
+  margin: 0 0 0 56px;
+  border-bottom: 30px solid rgba(171,171,171,0.8);
+  border-left: 30px solid transparent;
+}
+
+.quote1{
+  width: 250px;
+
+  margin: 0 0 0 56px;
+  padding: 10px 20px 20px 20px;
+
+  background: rgba(171,171,171,0.8);
+
+  color: black;
+  text-shadow: 2px 3px rgba(255,255,255,0.75);
+  h3{
+    margin: 0;
+
+    font-size: 28px;
+    line-height: 34px;
+  }
+  h4{
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.corner{
+  width: 250px;
+  height: 0px;
+  margin: 0 0 0 56px;
+  border-bottom: 30px solid rgba(171,171,171,0.8);
+  border-left: 30px solid transparent;
+  &.right{
+    margin: 0 56px 0 0;
+    border-left: none;
+    border-right: 30px solid transparent;
+  }
+}
+
+.quote{
+  width: 250px;
+
+  margin: 0 0 0 56px;
+  padding: 10px 20px 20px 20px;
+
+  background: rgba(171,171,171,0.8);
+
+  color: black;
+  text-shadow: 2px 3px rgba(255,255,255,0.75);
+  h3{
+    margin: 0;
+
+    font-size: 28px;
+    line-height: 34px;
+  }
+  h4{
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 20px;
+  }
+  &.right{
+    margin: 0 56px 0 0;
+  }
+}
+//Quote Boxes End
 
 
+//1,2,3 Feature Boxes Start
+
+.cornered{
+  width: 230px;
+  height: 0px;
+  margin: 80px 0 0 0;
+  border-bottom: 30px solid #9fb1aa;
+  border-right: 30px solid transparent;
+}
+
+.features-wrapper{
+  width: 250px;
+  min-height: 230px;
+  margin: 0 0 0 0;
+
+  background-color: #9fb1aa;
+
+  .features{
+    margin: 0 0 0 0;
+    padding: 0 14px 0 14px;
+    background-color: transparent;
+    .numeral{
+      display: block;
+      float: left;
+      margin: -16px 0 0 0;
+
+      color: white;
+      font-family: $headerFontStack;
+      font-size: 83px;
+      line-height: 83px;
+    }
+    .feature-icon{
+      display: block;
+      float: left;
+      margin: -12px 0 0 34px;
+      width: 60px;
+      height: 60px;
+
+      background-image: url(bc-sprite.png);
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 362px 626px;
+
+      &.one{
+        background-position: 0 -374px;
+      }
+      &.two{
+        background-position: 0 -434px;
+      }
+      &.three{
+        background-position: 0 -494px;
+      }
+    }
+    hr{
+      margin: 0;
+      padding: 0;
+
+      border-top: 1px solid black;
+    }
+    h3{
+      margin: 14px 0 8px 0;
+      padding: 0;
+
+      color: black;
+      font-size: 24px;
+      line-height: 24px;
+      text-align: center;
+    }
+    p{
+      margin: 10px 0 0 0;
+      padding: 0;
+
+      color: #424141;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+    }
+    .highlight{
+      font-family: $headerFontStack;
+    }
+  }
+}
+
+//1,2,3 Feature Boxes End
+
+
+// CART STYLES START
+
+#cartToggle{
+  color: white;
+}
+
+// CART STYLES END
 
