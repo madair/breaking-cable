@@ -2222,8 +2222,32 @@ body {
   }
 
   &.template-collection{
-    .breadcrumb{
-      display: none;
+    .wrapper{
+      &.main-content{
+        .breadcrumb{
+          display: none;
+        }
+        .page-header{
+        }
+        .grid{
+          .grid-item{
+            &.collection-side{
+              float: right;
+              width: 27%;
+              padding: 20px;
+              background-color: rgba(0,0,0,0.75);
+            }
+          }
+          .grid-uniform{
+            .grid-item{
+              border-bottom: 1px solid white;
+              &:last-child{
+                border: none;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
