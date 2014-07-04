@@ -1955,13 +1955,23 @@ body {
   .grid-item{
     &.featured{
       margin: 80px 0 0 0;
-      .first{
+      &.first{
+        a{
+          float: right;
+        }
       }
 
-      .second{
+      &.second{
+        a{
+          width: 250px;
+          margin: 0 auto;
+        }
       }
 
-      .third{
+      &.third{
+        a{
+          float: left;
+        }
       }
 
       .cornered{
@@ -2211,7 +2221,11 @@ body {
     }
   }
 
-
+  &.template-collection{
+    .breadcrumb{
+      display: none;
+    }
+  }
 
 
 
