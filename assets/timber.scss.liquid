@@ -1660,6 +1660,8 @@ a.btn-secondary {
 // #Custom Styles - Ryan Krieg
 // ==============================================================================
 
+$orange: #d57a5e;
+
 html{
   background: #191919;
 }
@@ -1670,7 +1672,7 @@ body {
   width: 1024px;
   min-height: 100%;
   margin: 0 auto;
-  background: #d57a5e url(back.jpg) top center no-repeat;
+  background: $orange url({{ 'background.jpg' | asset_url }}) top center no-repeat;
   a, a:visited{
     text-decoration: none;
   }
@@ -1733,7 +1735,7 @@ body {
       font-weight: normal;
       text-transform: uppercase;
 
-      background-image: url(sprite2.png);
+      background-image: url({{ 'sprite.png' | asset_url }});
       background-repeat: no-repeat;
       background-position: 0 0;
       background-size: 362px 730px;
@@ -1814,7 +1816,7 @@ body {
   .site-footer{
     padding: 4px 0 12px 0;
 
-    background: transparent url(footer.jpg) bottom center no-repeat;
+    background: transparent url({{ 'footer.jpg' | asset_url }}) bottom center no-repeat;
     border-top: none;
 
     .wrapper{
@@ -1847,7 +1849,7 @@ body {
           margin: -5px 10px 0 0;
           padding: 0 0 0 0;
 
-          background-image: url(sprite2.png);
+          background-image: url({{ 'sprite.png' | asset_url }});
           background-repeat: no-repeat;
           background-position: 0 0;
           background-size: 362px 730px;
@@ -2010,7 +2012,7 @@ body {
             width: 60px;
             height: 60px;
 
-            background-image: url(sprite2.png);
+            background-image: url({{ 'sprite.png' | asset_url }});
             background-repeat: no-repeat;
             background-position: 0 0;
             background-size: 362px 730px;
@@ -2110,7 +2112,7 @@ body {
 
   // HOME PAGE STYLES
   &.template-index{
-    background: #9b9c9b url(background2.jpg) top center no-repeat;
+    background: #9b9c9b url({{ 'bg.jpg' | asset_url }}) top center no-repeat;
     .wrapper{
       &.main-content{
         margin: 0;
@@ -2128,7 +2130,7 @@ body {
             z-index: 1000;
             pointer-events: none;
 
-            background: transparent url(foreground-bolts.png) top center no-repeat;
+            background: transparent url({{ 'foreground-bolts.png' | asset_url }}) top center no-repeat;
           }
         }
       }
@@ -2166,12 +2168,17 @@ body {
           color: white;
         }
         h2{
-          font-size: 34px;
+          display: inline-block;
+
+          font-size: 56px;
           margin: 0;
+          padding: 0 0 10px 0;
+
+          border-bottom: 1px solid white;
         }
         p{
-          margin: 0 0 1em 0;
-          font-size: 24px;
+          margin: 0 0 20px 0;
+          font-size: 20px;
           line-height: 28px;
         }
         .breadcrumb{
@@ -2179,7 +2186,7 @@ body {
           font-size: 14px;
         }
         a, a:visited{
-          color: #d57a5e;
+          color: $orange;
         }
         a:hover, a:active{
           text-decoration: underline;
@@ -2194,9 +2201,105 @@ body {
     }
   }
 
-  // CUSTOM PAGE TEMPLATE & BLOG STYLES ONLY
+  // CUSTOM PAGE TEMPLATE STYLES ONLY
   &.template-page{
-  
+    .wrapper{
+      &.main-content{
+        position: relative;
+        padding: 40px 80px;
+        .whitebg-corner{
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 585px;
+          height: 0;
+
+          border-top: 220px solid #d6e6ee;
+          border-left: 200px solid transparent;
+        }
+        header{
+          &.page-header{
+            display: none;
+          }
+        }
+        .featured-image{
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: block;
+          &.howitworks{
+            background-image: url({{ 'interior-howitworks-feature.png' | asset_url }});
+            width: 437px;
+            height: 275px;
+
+            margin: 20px 80px 0 0;
+          }
+          &.services{
+            background-image: url({{ 'interior-services-feature.png' | asset_url }});
+            width: 590px;
+            height: 257px;
+
+            margin-top: -35px;
+          }
+        }
+        h2{
+          margin-bottom: 40px;
+          .icon{
+            display: inline-block;
+            margin: 0 0 0 0;
+            width: 60px;
+            height: 60px;
+
+            vertical-align: middle;
+
+            background-image: url({{ 'sprite.png' | asset_url }});
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 362px 730px;
+
+            &.one{
+              background-position: -60px -374px;
+            }
+            &.two{
+              background-position: -60px -434px;
+            }
+            &.three{
+              background-position: -60px -494px;
+            }
+          }
+        }
+      }
+    }
+
+    h3{
+      margin: 0 0 10px 0;
+
+      font-size: 40px;
+      color: $orange !important;
+    }
+
+    ol{
+      margin: 0 0 40px 0;
+      li{
+        list-style-position: inside;
+
+        margin: 0 0 20px 0;
+
+        color: $orange !important;
+        font-family: $headerFontStack !important;
+        font-size: 25px;
+        line-height: 25px;
+      }
+    }
+
+    hr{
+      height: 0;
+      margin: 40px 0;
+      padding: 0;
+
+      border-bottom: 1px solid white;
+    }
+
   }
 
   // BLOG STYLES ONLY
@@ -2228,6 +2331,7 @@ body {
           display: none;
         }
         .page-header{
+
         }
         .grid{
           .grid-item{
