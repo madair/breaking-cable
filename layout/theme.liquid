@@ -93,7 +93,15 @@
           {% endcomment %}
           
           <a href="/cart" id="cartToggle">
-            Cart (<span id="cartCount">{{ cart.item_count }}</span> {{ cart.item_count | pluralize: 'item', 'items' }} <span id="cartCost">{{ cart.total_price | money }}</span>)
+            <div class="cart-corner">
+            </div>
+            <div class="cart-box">
+              <span id="cartCount">{{ cart.item_count }}</span> 
+              {{ cart.item_count | pluralize: 'item', 'items' }} 
+              {% comment %}<span id="cartCost">{{ cart.total_price | money }}</span>{% endcomment %}
+              <span class="goto-checkout">Proceed To<br/>Checkout</span>
+              <span class="icon cart"></span>
+            </div>
           </a>
 
           {% comment %}
