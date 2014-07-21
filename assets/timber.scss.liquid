@@ -1686,9 +1686,6 @@ body {
     }
     &.nopadding{
       padding: 0;
-      .lightning {
-        display: none;
-      }
     }
   }
 
@@ -1721,93 +1718,182 @@ body {
 
   // NAV
   .nav-bar{
-    background: transparent;
-  }
-
-  .site-nav{
-    li{
-      height: 65px;
-
-      margin: 0;
+    .wrapper{
       padding: 0;
-
-      font-family: $headerFontStack;
-      font-size: 23px;
-      font-weight: normal;
-      text-transform: uppercase;
-
-      background-image: url({{ 'sprite.png' | asset_url }});
-      background-repeat: no-repeat;
-      background-position: 0 0;
-      background-size: 362px 730px;
-
-      &:hover, &.site-nav-active{
-        a, a:visited{
-          color: white;
-        }
+      .grid{
+        margin-left: 0;
       }
+    }
+    .grid-item{
+      padding: 0 8px;
+    }
+    background: transparent;
 
-      a, a:visited{
-        padding: 24px 0 0 10px !important;
-        color: black;
+    // OLD NAV
+    //  .site-nav{
+    //    li{
+    //      height: 65px;
+    //
+    //      margin: 0;
+    //      padding: 0;
+    //
+    //      font-family: $headerFontStack;
+    //      font-size: 23px;
+    //      font-weight: normal;
+    //      text-transform: uppercase;
+    //
+    //      background-image: url({{ 'sprite.png' | asset_url }});
+    //      background-repeat: no-repeat;
+    //      background-position: 0 0;
+    //      background-size: 362px 730px;
+    //
+    //      &:hover, &.site-nav-active{
+    //        a, a:visited{
+    //          color: white;
+    //        }
+    //      }
+    //
+    //      a, a:visited{
+    //        padding: 24px 0 0 10px !important;
+    //        color: black;
+    //
+    //      }
+    //
+    //      &:nth-child(1){
+    //        width: 181px;
+    //       
+    //        margin-right: 12px;
+    //
+    //        background-position: 0 -114px;
+    //        &:hover, &.site-nav-active{
+    //          background-position: -181px -114px;
+    //        }
+    //        a, a:visited{
+    //
+    //        }
+    //      }
+    //      &:nth-child(2){
+    //        width: 132px;
+    //       
+    //        margin-right: 285px;
+    //
+    //        background-position: 0 -179px;
+    //        &:hover, &.site-nav-active{
+    //          background-position: -181px -179px;
+    //        }
+    //        a, a:visited{
+    //          
+    //        }
+    //      }
+    //      &:nth-child(3){
+    //        width: 161px;
+    //       
+    //        margin-right: 12px;
+    //
+    //        background-position: 0 -244px;
+    //        &:hover, &.site-nav-active{
+    //          background-position: -181px -244px;
+    //        }
+    //        a, a:visited{
+    //          padding-left: 30px !important;
+    //          
+    //        }
+    //      }
+    //      &:nth-child(4){
+    //        width: 181px;
+    //
+    //        background-position: 0 -309px;
+    //        &:hover, &.site-nav-active{
+    //          background-position: -181px -309px;
+    //        }
+    //        a, a:visited{
+    //          padding-left: 30px !important;
+    //          
+    //        }
+    //      }
+    //      &:nth-child(5){
+    //        width: 181px;
+    //
+    //        background-position: 0 -309px;
+    //        &:hover, &.site-nav-active{
+    //          background-position: -181px -309px;
+    //        }
+    //        a, a:visited{
+    //          padding-left: 30px !important;
+    //          
+    //        }
+    //      }
+    //      &:nth-child(6){
+    //        width: 181px;
+    //
+    //        background-position: 0 -309px;
+    //        &:hover, &.site-nav-active{
+    //          background-position: -181px -309px;
+    //        }
+    //        a, a:visited{
+    //          padding-left: 30px !important;
+    //          
+    //        }
+    //      }
+    //    }
+    //  }
 
-      }
+    // NEW NAV
+    .site-nav{
+      li{
+        width: 115px;
+        height: 42px;
 
-      &:nth-child(1){
-        width: 181px;
-       
-        margin-right: 12px;
+        margin: 0;
+        padding: 0;
 
-        background-position: 0 -114px;
-        &:hover, &.site-nav-active{
-          background-position: -181px -114px;
-        }
-        a, a:visited{
+        font-family: $headerFontStack;
+        font-size: 18px;
+        font-weight: normal;
+        text-transform: uppercase;
 
-        }
-      }
-      &:nth-child(2){
-        width: 132px;
-       
-        margin-right: 285px;
+        background-image: url({{ 'sprite.png' | asset_url }});
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 362px 730px;
 
         background-position: 0 -179px;
         &:hover, &.site-nav-active{
           background-position: -181px -179px;
+          a, a:visited{
+            color: white;
+          }
         }
         a, a:visited{
-          
-        }
-      }
-      &:nth-child(3){
-        width: 161px;
-       
-        margin-right: 12px;
+          padding: 16px 0 0 8px !important;
+          color: black;
 
-        background-position: 0 -244px;
-        &:hover, &.site-nav-active{
-          background-position: -181px -244px;
         }
-        a, a:visited{
-          padding-left: 30px !important;
-          
-        }
-      }
-      &:nth-child(4){
-        width: 181px;
 
-        background-position: 0 -309px;
-        &:hover, &.site-nav-active{
-          background-position: -181px -309px;
+        &:nth-child(1){
+          width: 110px;
+          margin-right: 2px;
         }
-        a, a:visited{
-          padding-left: 30px !important;
-          
+        &:nth-child(2){
+          width: 100px;
+          margin-right: 2px;
         }
-      }
-      // Hides navigation items exceeding 4
-      &:nth-child(5), &:nth-child(6){
-        display: none;
+        &:nth-child(3){
+          width: 135px;
+          margin-right: 263px;
+        }
+        &:nth-child(4){
+          width: 130px;
+          margin-right: 2px;
+        }
+        &:nth-child(5){
+          width: 120px;
+          margin-right: 2px;
+        }
+        &:nth-child(6){
+          width: 120px;
+          margin-right: 0px;
+        }
       }
     }
   }
@@ -2087,20 +2173,20 @@ body {
         margin: 0;
         padding-bottom: 0;
         background-color: transparent;
-        &.nopadding{
-          .lightning {
-            display: block;
-            width: 1024px;
-            height: 285px;
+      }
+      &.nopadding{
+        .lightning {
+          display: block;
+          width: 1024px;
+          height: 285px;
 
-            position: absolute;
-            top: 0;
+          position: absolute;
+          top: 0;
 
-            z-index: 1000;
-            pointer-events: none;
+          z-index: 1000;
+          pointer-events: none;
 
-            background: transparent url({{ 'foreground-bolts.png' | asset_url }}) top center no-repeat;
-          }
+          background: transparent url({{ 'foreground-bolts.png' | asset_url }}) top center no-repeat;
         }
       }
     }
