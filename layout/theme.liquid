@@ -65,16 +65,16 @@
   Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-<div class="wrapper nopadding">
-  <div class="lightning"></div>
-</div>
+  <div class="wrapper nopadding">
+    <div class="lightning"></div>
+  </div>
 
   <header class="site-header" role="banner">
     <div class="wrapper">
       <h1>BREAKINGCABLE.TV</h1>
       <div class="breakingcable">
         <a href="/">
-          {{ 'sprite4.png' | asset_url | img_tag: shop.name }}
+          {{ 'sprite.png' | asset_url | img_tag: shop.name }}
         </a>
       </div>
 
