@@ -8,10 +8,12 @@
 
 {% endcomment %}
 
+{% comment %}
 {% include 'breadcrumb' %}
+{% endcomment %}
 
 <header class="page-header">
-  <h2>Product Collections</h2>
+  <h2>Catalogue</h2>
 </header>
 
 <div class="grid-uniform">
@@ -29,4 +31,30 @@
 
   {% endfor %}
 
+</div>
+
+<hr/>
+
+<h3>Featured</h3>
+
+<div class="grid-uniform">
+  {% comment %}
+    Add a showcase (featured product)
+  {% endcomment %}
+  <div id="showcase">
+    {% if collections.frontpage.products.size > 0 %}
+      {% capture index %}{{ 'now' | date: '%S' | times: collections.frontpage.products.size | divided_by: 60 }}{% endcapture %}
+      {% for product in collections.frontpage.products offset:index limit:1 %}
+        {% include 'product-list-item' %}
+      {% endfor %}
+    {% else %}
+    {% comment %}
+      <p>
+        <a href="/admin/custom_collections">
+          Add a product to the "frontpage" collection to see it here...
+        </a>
+      </p>
+    {% endcomment %}
+    {% endif %}
+  </div>
 </div>

@@ -12,17 +12,19 @@
   {% endcomment %}
   {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
 
-  <a href="{{ collection.url }}" title="Browse our {{ collection_title }} collection">
-    {% if collection.image %}
-      {{ collection.image.src | collection_img_url: 'large' | img_tag: collection_title }}
-    {% else %}
-      {{ collection.products.first.featured_image | product_img_url: 'large' | img_tag: collection_title }}
-    {% endif %}
-  </a>
-
   <h3 class="h5">
     <a href="{{ collection.url }}" title="Browse our {{ collection_title }} collection">{{ collection.title }}</a>
     <small>({{ collection.all_products_count }} {{ collection.all_products_count | pluralize: 'item', 'items' }})</small>
   </h3>
+
+  <div class="orange-bg">
+    <a href="{{ collection.url }}" title="Browse our {{ collection_title }} collection">
+      {% if collection.image %}
+        {{ collection.image.src | collection_img_url: 'large' | img_tag: collection_title }}
+      {% else %}
+        {{ collection.products.first.featured_image | product_img_url: 'large' | img_tag: collection_title }}
+      {% endif %}
+    </a>
+  </div>
 
 </div>

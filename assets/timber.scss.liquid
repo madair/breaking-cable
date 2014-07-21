@@ -2299,7 +2299,7 @@ body {
 
 
   // CUSTOM TEMPLATE STYLES
-  &.template-page, &.template-blog, &.template-article, &.template-collection, &.template-product, &.template-cart{
+  &.template-page, &.template-blog, &.template-article, &.template-collection, &.template-product, &.template-cart, &.template-list-collections{
     .wrapper{
       &.main-content{
         h1,h2,h3,h4,h5,h6,p,li,span,blockquote,pre,abbr,acronym,address,big,cite,code,del,dfn,em,ins,kbd,q,s,samp,small,strike,strong,sub,tt,var,b,u,i,dl,dt,dd,ol,ul,label,legend,caption,tbody,tfoot,thead,tr,th,td,article,aside,details,figure,figcaption,hgroup,output,ruby,time,mark,form{
@@ -2315,8 +2315,12 @@ body {
 
           border-bottom: 1px solid white;
         }
-        p, div{
+        p{
           margin: 0 0 20px 0;
+          font-size: 20px;
+          line-height: 28px;
+        }
+        div{
           font-size: 20px;
           line-height: 28px;
         }
@@ -2517,6 +2521,17 @@ body {
           max-width: 40%;
         }
       }
+      .grid{
+        .grid-item{
+          &.large--one-quarter{
+            padding: 15px;
+            background-color: rgba(0,0,0,0.3);
+            h4{
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -2526,10 +2541,47 @@ body {
   // SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP //
   // ___________________________________________ //
 
-  &.template-collection, &.template-product, &.template-cart{
+  &.template-collection, &.template-product, &.template-cart, &.template-list-collections{
     .wrapper{
       &.main-content{
         img{
+          margin: 0;
+        }
+        .breadcrumb{
+          display: none;
+        }
+        .page-header{
+
+        }
+        .collection-side{
+          padding: 15px;
+          background-color: rgba(0,0,0,0.3);
+          h4{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.template-list-collections{
+    .wrapper{
+      &.main-content{
+        .orange-bg{
+          display: block;
+          background: $orange;
+          width: 309px;
+          height: 232px;
+          a{
+            display: inline-block;
+          }
+          img{
+            min-width: 309px;
+            vertical-align: middle;
+          }
+        }
+        #storefront{
+
         }
       }
     }
@@ -2538,26 +2590,17 @@ body {
   &.template-collection{
     .wrapper{
       &.main-content{
-        .breadcrumb{
-          display: none;
-        }
-        .page-header{
-
-        }
-        .grid{
-          .grid-item{
-            &.collection-side{
-              float: right;
-              width: 27%;
-              padding: 20px;
-              background-color: rgba(0,0,0,0.75);
-            }
-          }
-          .grid-uniform{
-            .grid-item{
-              border-bottom: 1px solid white;
-              &:last-child{
-                border: none;
+        .grid-item{
+          &.large--two-thirds{
+            .grid-uniform{
+              .grid-item{
+                padding-left: 0;
+                margin-left: $gutter;
+                margin-bottom: 40px;
+                border-bottom: 1px solid #fff;
+                &:last-child{
+                  border-bottom: none;
+                }
               }
             }
           }
