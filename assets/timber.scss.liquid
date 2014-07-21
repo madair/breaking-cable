@@ -78,36 +78,43 @@ $breakpoint-has-push:  ('small', 'medium', 'medium-down', 'large');
 $breakpoint-has-pull:  ('small', 'medium', 'medium-down', 'large');
 
 // ==============================================================================
+// #Custom Variables - Ryan Krieg
+// ==============================================================================
+$orange: #d57a5e;
+$brown: rgba(23,23,23,0.8);
+$light-grey: #9b9c9b;
+
+// ==============================================================================
 // #General Variables
 // ==============================================================================
 
 /* Button colors */
-$colorBtnPrimary: #747474; // boring grey
+$colorBtnPrimary: $orange; // boring grey
 $colorBtnPrimaryHover: darken($colorBtnPrimary, 10%);
 $colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
 
-$colorBtnSecondary: #464646;
+$colorBtnSecondary: $brown;
 $colorBtnSecondaryHover: darken($colorBtnSecondary, 10%);
 $colorBtnSecondaryActive: darken($colorBtnSecondaryHover, 10%);
 
 /* Text link colors */
-$colorLink: #515151;
-$colorLinkHover: #333;
+$colorLink: $orange;
+$colorLinkHover: darken($orange, 10%);
 
 /* Text colors */
 $colorBody: #fff;
-$colorText: #333;
-$colorHeaders: #999;
-$colorTextGrey: #777;
+$colorText: #fff;
+$colorHeaders: $orange;
+$colorTextGrey: $light-grey;
 
 /* Border colors */
-$borderColor: #e5e5e5;
+$borderColor: #fff;
 
 /* Nav and dropdown link background */
-$colorNav: #f6f6f6;
+$colorNav: $brown;
 
 /* Footer */
-$colorFooterBg: #f6f6f6;
+$colorFooterBg: $light-grey;
 
 /* Helper colors */
 $disabledGrey: #f6f6f6;
@@ -649,11 +656,11 @@ $class-type: unquote(".");
 // #Basic Styles
 // ==============================================================================
 html {
-  background-color: $colorFooterBg;
+  background-color: black;
 }
 
 body {
-  background-color: #fff;
+  background-color: $orange;
 }
 
 .wrapper {
@@ -797,7 +804,6 @@ hr {
 
 .page-header {
   @extend .clearfix;
-  border-bottom: 1px solid $borderColor;
   margin-bottom: $gutter;
 }
 
@@ -1660,7 +1666,7 @@ a.btn-secondary {
 // #Custom Styles - Ryan Krieg
 // ==============================================================================
 
-$orange: #d57a5e;
+
 
 html{
   background: #191919;
@@ -1680,8 +1686,8 @@ body {
 
   .wrapper{
     &.main-content{
-      background-color: rgba(23,23,23,0.8);
-      margin: 60px 0 4px 0;
+      background-color: rgba($brown,0.8);
+      margin: 100px 0 4px 0;
       padding: 40px 24px;
     }
     &.nopadding{
@@ -1692,10 +1698,9 @@ body {
   .site-header{
     height: 81px;
     padding: 10px 0;
-  }
-
-  h1{
-    display: none;
+    h1{
+      display: none;
+    }
   }
 
   // Main Logo
@@ -1907,12 +1912,17 @@ body {
     border-top: none;
 
     .wrapper{
-      .social-icons{
+      ul{
+        display: inline-block;
+        margin: 20px 0 0 0;
         li{
           display: inline-block;
-          float: right;
           margin: 0;
           padding: 0;
+
+          color: #2f2f2f;
+          font-size: 19px;
+          font-family: $headerFontStack;
           a, a:visited{
             display: block;
             width: 36px;
@@ -1921,7 +1931,6 @@ body {
             color: #2f2f2f;
             font-size: 19px;
             font-family: $headerFontStack;
-            text-decoration: none;
             &:hover, &:active{
               color: black;
             }
@@ -1930,31 +1939,50 @@ body {
             }
           }
         }
-        .social-icon{
-          width: 36px;
-          height: 36px;
-          margin: -5px 10px 0 0;
-          padding: 0 0 0 0;
-
-          background-image: url({{ 'sprite.png' | asset_url }});
-          background-repeat: no-repeat;
-          background-position: 0 0;
-          background-size: 362px 730px;
-
-          background-color: #2f2f2f;
-          border-radius: 18px;
-          -webkit-border-radius: 18px;
-          -moz-border-radius: 18px;
-          -ms-border-radius: 18px;
-          -o-border-radius: 18px;
-          &.facebook-icon{
-            background-position: 0 -554px;
+        &.contact-info{
+          float: left;
+          li{
+            float: left;
+            margin: 0 30px 0 0;
+            .at-symbol{
+              display: inline-block;
+              font-family: $bodyFontStack;
+              font-weight: 900;
+            }
           }
-          &.twitter-icon{
-            background-position: 0 -590px;
+        }
+
+        &.social-icons{
+          float: right;
+          li{
+            float: right;
           }
-          &:hover, &:active{
-            opacity: 0.9;
+          .social-icon{
+            width: 36px;
+            height: 36px;
+            margin: -5px 10px 0 0;
+            padding: 0 0 0 0;
+
+            background-image: url({{ 'sprite.png' | asset_url }});
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 362px 730px;
+
+            background-color: #2f2f2f;
+            border-radius: 18px;
+            -webkit-border-radius: 18px;
+            -moz-border-radius: 18px;
+            -ms-border-radius: 18px;
+            -o-border-radius: 18px;
+            &.facebook-icon{
+              background-position: 0 -554px;
+            }
+            &.twitter-icon{
+              background-position: 0 -590px;
+            }
+            &:hover, &:active{
+              opacity: 0.9;
+            }
           }
         }
       }
@@ -2167,7 +2195,7 @@ body {
 
   // HOME PAGE STYLES
   &.template-index{
-    background: #9b9c9b url({{ 'bg.jpg' | asset_url }}) top center no-repeat;
+    background: $light-grey url({{ 'bg.jpg' | asset_url }}) top center no-repeat;
     .wrapper{
       &.main-content{
         margin: 0;
@@ -2231,12 +2259,13 @@ body {
 
           border-bottom: 1px solid white;
         }
-        p{
+        p, div{
           margin: 0 0 20px 0;
           font-size: 20px;
           line-height: 28px;
         }
         .breadcrumb{
+          padding-left: $gutter;
           color: white;
           font-size: 14px;
         }
@@ -2252,6 +2281,8 @@ body {
           margin: 20px;
           padding: 0;
         }
+        strong{
+        }
       }
     }
   }
@@ -2260,14 +2291,22 @@ body {
   &.template-page{
     .wrapper{
       &.main-content{
+        .rte{
+          //z-index:2;
+        }
         position: relative;
-        padding: 40px 80px;
+        padding: 0 80px 40px 80px;
         .whitebg-corner{
-          position: absolute;
-          right: 0;
-          top: 0;
-          width: 585px;
+          
+          //position: absolute;
+          //right: 0;
+          //top: 0;
+          display: block;
+          float: right;
+          width: 400px;
           height: 0;
+          margin-right: -80px;
+          margin-bottom: 40px;
 
           border-top: 220px solid #d6e6ee;
           border-left: 200px solid transparent;
@@ -2287,7 +2326,7 @@ body {
             width: 437px;
             height: 275px;
 
-            margin: 20px 80px 0 0;
+            margin: 20px 20px 0 0;
           }
           &.services{
             background-image: url({{ 'interior-services-feature.png' | asset_url }});
@@ -2298,6 +2337,7 @@ body {
           }
         }
         h2{
+          margin-top: 40px;
           margin-bottom: 40px;
           .icon{
             display: inline-block;
@@ -2323,57 +2363,117 @@ body {
             }
           }
         }
+
+        h3{
+          margin: 0 0 0 0;
+
+          font-size: 40px;
+          color: $orange !important;
+        }
+
+        h4{
+          margin: 0 0 10px 0;
+
+          font-size: 30px;
+          color: $orange !important;
+        }
+
+        ol{
+          margin: 0 0 40px 0;
+          li{
+            list-style-position: inside;
+
+            margin: 0 0 20px 0;
+
+            color: $orange !important;
+            font-family: $headerFontStack !important;
+            font-size: 25px;
+            line-height: 25px;
+          }
+        }
+
+        hr{
+          height: 0;
+          margin: 40px 0;
+          padding: 0;
+
+          border-top: 1px solid white;
+        }
+
+        img{
+          max-width: 40%;
+          border: 10px solid $orange;
+        }
+
+        .email-us{
+          display: block;
+          text-align: right;
+          p{
+            color: $orange !important;
+            a, a:visited{
+              display: inline-block;
+              margin: 0 10px 0 0 !important;
+              
+              .email-corner{
+                display: block;
+                height: 0;
+
+                border-bottom: 15px solid rgba(0,0,0,1);
+                border-left: 15px solid transparent;
+              }
+              .email-text{
+                display: block;
+                padding: 0px 15px 10px 15px !important;
+                background: rgba(0,0,0,1) !important;
+
+                color: white !important;
+                font-size: 24px;
+                text-transform: uppercase;
+              }
+            }
+            a:hover, a:active{
+              text-decoration: none !important;
+              .email-corner{
+                border-bottom: 15px solid rgba(0,0,0,0.4);
+              }
+              .email-text{
+                background: rgba(0,0,0,0.4) !important;
+              }
+            }
+          }
+        }
       }
     }
 
-    h3{
-      margin: 0 0 10px 0;
-
-      font-size: 40px;
-      color: $orange !important;
-    }
-
-    ol{
-      margin: 0 0 40px 0;
-      li{
-        list-style-position: inside;
-
-        margin: 0 0 20px 0;
-
-        color: $orange !important;
-        font-family: $headerFontStack !important;
-        font-size: 25px;
-        line-height: 25px;
-      }
-    }
-
-    hr{
-      height: 0;
-      margin: 40px 0;
-      padding: 0;
-
-      border-bottom: 1px solid white;
-    }
 
   }
 
   // BLOG STYLES ONLY
   &.template-blog, &.template-article{
+    .wrapper{
+      &.main-content{
+        h1{
+          font-size: 46px;
+          line-height: 46px;
+          margin-bottom: 10px;
+        }
+        img{
+          max-width: 40%;
+        }
+      }
+    }
   }
 
 
+  // ______________________________________________ //
 
-
-// ______________________________________________ //
-
-// SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP //
-// ___________________________________________ //
+  // SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP //
+  // ___________________________________________ //
 
   &.template-collection, &.template-product, &.template-cart{
     .wrapper{
       &.main-content{
         img{
-          margin: 0;
         }
       }
     }
