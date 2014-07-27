@@ -16,7 +16,7 @@
   {% include 'breadcrumb' %}
 
   <div class="grid">
-    <div class="grid-item large--one-half">
+    <div class="grid-item large--five-twelfths">
 
       {% comment %}
         If we only have one product image, show a large version of it.
@@ -60,7 +60,7 @@
 
     </div>
 
-    <div class="grid-item large--one-half">
+    <div class="grid-item large--one-half right">
 
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
@@ -75,6 +75,10 @@
         {% else %}
           <link itemprop="availability" href="http://schema.org/OutOfStock">
         {% endif %}
+
+        <div class="product-description rte" itemprop="description">
+          {{ product.description }}
+        </div>
 
         {% comment %}
           ID addToCartForm is a selector for the ajaxify cart plugin
@@ -95,13 +99,11 @@
               - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
 
           {% endcomment %}
+
+          {% comment %} ----- REMOVED VARIANT SELECT ------
           <select name="id" id="productSelect" class="product-variants">
             {% for variant in product.variants %}
               {% if variant.available %}
-
-                {% comment %}
-                  Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
-                {% endcomment %}
                 <option value="{{variant.id}}">
                   {{ variant.title }} - {{ variant.price | money_with_currency }}
                 </option>
@@ -113,6 +115,7 @@
               {% endif %}
             {% endfor %}
           </select>
+          {% endcomment %}
 
           {% comment %}
             Optionally show the 'compare at' or original price of the product.
@@ -135,18 +138,13 @@
             </strong>
           {% endif %}
 
-          {% comment %}
-            Quantity selector is optional
-          {% endcomment %}
-          <label for="quantity">Qty: </label>
+          {% comment %} ----- REMOVED QUANTITY SELECT ------
+          <label for="quantity">Quantity: </label>
           <input type="number" id="quantity" name="quantity" value="1" min="1">
+          {% endcomment %}
 
-          <input type="submit" name="add" class="btn" id="addToCart" value="Add to Cart">
+          <input type="submit" name="add" class="btn" id="addToCart" value="BUY">
         </form>
-
-        <div class="product-description rte" itemprop="description">
-          {{ product.description }}
-        </div>
 
       </div>
 
