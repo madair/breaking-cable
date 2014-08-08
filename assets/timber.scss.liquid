@@ -1702,6 +1702,9 @@ body {
     h1{
       display: none;
     }
+    .grid{
+      display: block;
+    }
   }
 
   // ______________________________________________ //
@@ -1882,6 +1885,7 @@ body {
 
     .site-nav{
       li{
+        width: 120px;
         height: 50px;
         margin: 0 5px 0 0;
         padding: 0;
@@ -1894,6 +1898,7 @@ body {
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: 304px 718px;
+        overflow: hidden;
         &:hover, &.site-nav-active{
           a, a:visited{
            color: white;
@@ -1903,6 +1908,7 @@ body {
           padding: 10px 0 20px 0!important;
           color: black;
           text-align: center;
+          overflow: hidden;
         }
         &:nth-child(1){
           width: 121px;
@@ -1935,6 +1941,7 @@ body {
         }
         &:nth-child(5){
           width: 84px;
+          margin: 0 4px 0 0;
           background-position: 0 -314px;
           &:hover, &.site-nav-active{
             background-position: -152px -314px;
@@ -2325,6 +2332,16 @@ body {
 
             margin-top: -35px;
           }
+          &.aboutus{
+            background-image: url({{ 'interior-aboutus-feature.png' | asset_url }});
+            width: 434px;
+            height: 220px;
+          }
+          &.stationlist{
+            background-image: url({{ 'interior-stationlist-feature.png' | asset_url }});
+            width: 271px;
+            height: 220px;
+          }
         }
         h2{
           margin-top: 40px;
@@ -2493,9 +2510,11 @@ body {
           height: 232px;
           a{
             display: inline-block;
+            width: 309px;
+            height: 232px;
           }
           img{
-            min-width: 309px;
+            width: 309px;
             vertical-align: middle;
           }
         }
@@ -2531,14 +2550,25 @@ body {
     }
   }
 
-  &.template-product{
+  &.template-product, &.template-cart{
     .wrapper{
       &.main-content{
         h2{
           display: block;
           font-size: 28px;
         }
-      
+        input{
+          color: black;
+          &.btn{
+            color: white;
+          }
+        }
+        .selector-wrapper{
+          .single-option-selector{
+            color: black;
+
+          }
+        }
 
 
       }

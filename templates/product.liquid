@@ -24,14 +24,14 @@
       {% endcomment %}
       {% if product.images.size == 0 %}
 
-        <div class="product-photo-container rte">
+        <div class="product-photo-container">
           <img src="{{ '' | product_img_url: 'grande' }}" alt="">
         </div>
 
       {% else %}
 
         <div class="product-photo-container">
-          <a href="{{ product.featured_image.src | product_img_url: 'original' }}">
+          <a href="{{ product.featured_image.src | product_img_url: 'original' }}" rel="shadowbox[mixed]">
             <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}">
           </a>
         </div>
@@ -46,8 +46,8 @@
           <ul class="product-photo-thumbs grid-uniform">
 
             {% for image in product.images offset:1 %}
-              <li class="grid-item one-quarter rte">
-                <a href="{{ image.src | product_img_url: 'original' }}">
+              <li class="grid-item one-quarter">
+                <a href="{{ image.src | product_img_url: 'original' }}" rel="shadowbox[mixed]">
                   <img src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}">
                 </a>
               </li>
@@ -100,7 +100,7 @@
 
           {% endcomment %}
 
-          {% comment %} ----- REMOVED VARIANT SELECT ------
+          
           <select name="id" id="productSelect" class="product-variants">
             {% for variant in product.variants %}
               {% if variant.available %}
@@ -115,7 +115,7 @@
               {% endif %}
             {% endfor %}
           </select>
-          {% endcomment %}
+          
 
           {% comment %}
             Optionally show the 'compare at' or original price of the product.
@@ -138,10 +138,10 @@
             </strong>
           {% endif %}
 
-          {% comment %} ----- REMOVED QUANTITY SELECT ------
+          
           <label for="quantity">Quantity: </label>
           <input type="number" id="quantity" name="quantity" value="1" min="1">
-          {% endcomment %}
+          
 
           <input type="submit" name="add" class="btn" id="addToCart" value="BUY">
         </form>
