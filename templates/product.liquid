@@ -24,7 +24,7 @@
       {% endcomment %}
       {% if product.images.size == 0 %}
 
-        <div class="product-photo-container">
+        <div class="product-photo-container rte">
           <img src="{{ '' | product_img_url: 'grande' }}" alt="">
         </div>
 
@@ -46,7 +46,7 @@
           <ul class="product-photo-thumbs grid-uniform">
 
             {% for image in product.images offset:1 %}
-              <li class="grid-item one-quarter">
+              <li class="grid-item one-quarter rte">
                 <a href="{{ image.src | product_img_url: 'original' }}">
                   <img src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}">
                 </a>

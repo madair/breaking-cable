@@ -27,6 +27,14 @@
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <!-- SHADOW BOX ================================================== -->
+  {{ 'shadowbox.js' | asset_url | script_tag }}
+  {{ 'shadowbox.css' | asset_url | stylesheet_tag }}
+  <script type="text/javascript">
+    Shadowbox.init({
+    });
+  </script>
+
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
 
@@ -180,6 +188,25 @@
   });
   </script>
   {% endif %}
+
+  <script>
+    jQuery(function() {
+      jQuery('.rte img').not('a > img').each(function() {
+        // Matching images that aren't already shown in their original size.
+        var re = /(_small)|(_compact)|(_medium)|(_large)|(_grande)/;
+        var src = jQuery(this).attr('src');
+        if (re.test(src)) {
+          // Determining the URL to the original image.
+          var href = src.replace(re, '');
+          // Activating lightbox.
+          jQuery(this).wrap('<a></a>')
+            .parent()
+            .attr('href', href)
+            .attr('rel', 'shadowbox')
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
