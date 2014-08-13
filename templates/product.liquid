@@ -115,7 +115,11 @@
               {% endif %}
             {% endfor %}
           </select>
-          
+
+          {% comment %}
+          <label for="quantity">Quantity: </label>
+          {% endcomment %}
+          <input type="number" id="quantity" name="quantity" value="1" min="1">
 
           {% comment %}
             Optionally show the 'compare at' or original price of the product.
@@ -138,13 +142,11 @@
             </strong>
           {% endif %}
 
-          
-          <label for="quantity">Quantity: </label>
-          <input type="number" id="quantity" name="quantity" value="1" min="1">
-          
-
           <input type="submit" name="add" class="btn" id="addToCart" value="BUY">
+
         </form>
+
+        <hr class="hr-clear">
 
       </div>
 
@@ -154,7 +156,7 @@
       {% endcomment %}
       {% if collection %}
         {% if collection.previous_product or collection.next_product %}
-          <p>
+          <p class="prevnext">
 
           {% if collection.previous_product %}
             {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}

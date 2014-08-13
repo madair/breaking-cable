@@ -41,12 +41,13 @@
 
   {% endcomment %}
   <a href="{{ product.url | within: collection }}" class="product-list-thumb">
-    <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}">
+    <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
   </a>
 
-  <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  <a href="{{ product.url | within: collection }}"><span class="prod-title">{{ product.title }}</span></a>
+  <p>{{ product.description | strip_html | truncatewords: 50 }}</p>
   <p>
-    <span>
+    <span class="prod-price">
       {% if sold_out %}
       <strong>Sold Out</strong>
       {% endif %}
@@ -63,6 +64,5 @@
       <span><strong>On Sale</strong> from {{ product.compare_at_price | money }}</span>
     {% endif %}
   </p>
-  <p>{{ product.description | strip_html | truncatewords: 50 }}</p>
 
 </div>
