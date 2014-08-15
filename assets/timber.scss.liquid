@@ -59,8 +59,8 @@
 $viewportIncrement: 1px;
 
 $small: 480px;
-$medium: 768px;
-$large: 769px;
+$medium: 1024px;
+$large: 1025px;
 
 $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
@@ -1214,7 +1214,6 @@ a.btn-secondary {
   margin: 0;
 }
 
-
 // ==============================================================================
 // #Pagination
 // ==============================================================================
@@ -1674,6 +1673,9 @@ html{
 
 
 body {
+  @include at-query('max-width', $medium) {
+    width: 100%;
+  }
   display: block;
   position: relative;
   width: 1024px;
@@ -1697,6 +1699,13 @@ body {
 
   // HEADER STYLES
   .site-header{
+    @include at-query('max-width', $medium) {
+      height: 190px;
+      padding: 0;
+      .wrapper{
+        padding: 0 32px 0 0;
+      }
+    }
     height: 81px;
     padding: 10px 0;
     h1{
@@ -1806,6 +1815,9 @@ body {
 //    border-left: 20px solid transparent;
 //  }
     .cart-box{
+      @include at-query('max-width', $medium) {
+        width: 100%;
+      }
       display: inline-block;
       min-width: 245px;
       height: 50px;
@@ -1851,6 +1863,12 @@ body {
 
   // Main Logo
   .breakingcable{
+    @include at-query('max-width', $medium) {
+      position: relative;
+      left: auto;
+      display: block;
+      margin: 0 auto;
+    }
     display: block;
     width: 170px;
     height: 114px;
@@ -1870,6 +1888,18 @@ body {
     }
   }
 
+  .theme-cart{
+    @include at-query('max-width', $medium) {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      margin-left: 0;
+      .grid-item{
+        padding-left: 0;
+      }
+    }
+  }
+
   // NAV
   .nav-bar{
     background: transparent;
@@ -1885,6 +1915,14 @@ body {
 
     .site-nav{
       li{
+        @include at-query('max-width', $medium) {
+          background-image: none;
+          height: auto;
+          color: white;
+          display: block;
+          border-top: 1px solid white;
+          border-bottom: 1px solid white;
+        }
         width: 120px;
         height: 50px;
         margin: 0 5px 0 0;
@@ -1909,8 +1947,17 @@ body {
           color: black;
           text-align: center;
           overflow: hidden;
+          @include at-query('max-width', $medium) {
+            padding: 8px 0 !important;
+            color: white;
+          }
         }
         &:nth-child(1){
+          @include at-query('max-width', $medium) {
+            width: 90%;
+            margin: 0 auto;
+            border-top: none;
+          }
           width: 121px;
           background-position: 0 -114px;
           &:hover, &.site-nav-active{
@@ -1918,6 +1965,10 @@ body {
           }
         }
         &:nth-child(2){
+          @include at-query('max-width', $medium) {
+            width: 90%;
+            margin: 0 auto;
+          }
           width: 127px;
           background-position: 0 -164px;
           &:hover, &.site-nav-active{
@@ -1925,6 +1976,10 @@ body {
           }
         }
         &:nth-child(3){
+          @include at-query('max-width', $medium) {
+            width: 90%;
+            margin: 0 auto;
+          }
           width: 96px;
           margin-right: 267px;
           background-position: 0 -214px;
@@ -1933,6 +1988,10 @@ body {
           }
         }
         &:nth-child(4){
+          @include at-query('max-width', $medium) {
+            width: 90%;
+            margin: 0 auto;
+          }
           width: 152px;
           background-position: 0 -264px;
           &:hover, &.site-nav-active{
@@ -1940,6 +1999,10 @@ body {
           }
         }
         &:nth-child(5){
+          @include at-query('max-width', $medium) {
+            width: 90%;
+            margin: 0 auto;
+          }
           width: 84px;
           margin: 0 4px 0 0;
           background-position: 0 -314px;
@@ -1948,6 +2011,11 @@ body {
           }
         }
         &:nth-child(6){
+          @include at-query('max-width', $medium) {
+            width: 90%;
+            margin: 0 auto;
+            border-bottom: none;
+          }
           width: 137px;
           margin-right: 0;
           background-position: 0 -364px;
@@ -1962,6 +2030,10 @@ body {
 
   // FOOTER
   .site-footer{
+    @include at-query('max-width', $medium) {
+      padding: 12px 0 70px 0;
+      background-position: top center;
+    }
     padding: 12px 0 20px 0;
 
     background: transparent url({{ 'footer.jpg' | asset_url }}) bottom center no-repeat;
@@ -2023,6 +2095,9 @@ body {
 
   //Quote Boxes Start
   .corner{
+    @include at-query('max-width', $medium) {
+      display: none;
+    }
     width: 250px;
     height: 0px;
     margin: 0 0 0 56px;
@@ -2036,6 +2111,9 @@ body {
   }
 
   .quote{
+    @include at-query('max-width', $medium) {
+      display: none;
+    }
     width: 250px;
 
     margin: 0 0 0 56px;
@@ -2066,9 +2144,27 @@ body {
   //1,2,3 Feature Boxes Start
   .grid-item{
     &.featured{
+      @include at-query('max-width', $medium) {
+        float: left;
+        display: inline-block;
+        margin: 20px 0 0 12px;
+        padding: 0;
+        &:first-child{
+          margin: 0 0 0 12px;
+        }
+        &:last-child{
+          margin: 20px 0 20px 12px;
+        }
+        a{
+          margin: 0 auto;
+        }
+      }
       margin: 60px 0 0 0;
       &.first{
         a{
+          @include at-query('max-width', $medium) {
+            float: none;
+          }
           float: right;
         }
       }
@@ -2082,6 +2178,9 @@ body {
 
       &.third{
         a{
+          @include at-query('max-width', $medium) {
+            float: none;
+          }
           float: left;
         }
       }
@@ -2189,6 +2288,9 @@ body {
 
   // HOME PAGE STYLES
   &.template-index{
+    @include at-query('max-width', $medium) {
+      background: $light-grey url({{ 'background.jpg' | asset_url }}) top center no-repeat;
+    }
     background: $light-grey url({{ 'bg.jpg' | asset_url }}) top center no-repeat;
     .wrapper{
       &.main-content{
@@ -2198,6 +2300,9 @@ body {
       }
       &.nopadding{
         .lightning {
+          @include at-query('max-width', $medium) {
+            display: none;
+          }
           display: block;
           width: 1024px;
           height: 285px;
@@ -2214,6 +2319,9 @@ body {
     }
     .breakingcable{
       top: 9px;
+      @include at-query('max-width', $medium) {
+        top: 20px;
+      }
     }
   }
   //END HOME PAGE STYLES
@@ -2606,8 +2714,4 @@ body {
     }
   }
 
-
 }
-
-
-
