@@ -58,7 +58,7 @@
 // ==============================================================================
 $viewportIncrement: 1px;
 
-$small: 480px;
+$small: 767px;
 $medium: 1024px;
 $large: 1025px;
 
@@ -1688,6 +1688,9 @@ body {
 
   .wrapper{
     &.main-content{
+      @include at-query('max-width', $medium) {
+        margin-top: 0;
+      }
       background-color: rgba($brown,0.8);
       margin: 100px 0 4px 0;
       padding: 40px 24px;
@@ -1894,6 +1897,7 @@ body {
       bottom: 0;
       width: 100%;
       margin-left: 0;
+      z-index: 9000;
       .grid-item{
         padding-left: 0;
       }
@@ -2396,16 +2400,17 @@ body {
   &.template-page{
     .wrapper{
       &.main-content{
-        .rte{
-          //z-index:2;
+        @include at-query('max-width', $medium) {
+          margin-top: 40px;
+          padding: 0 40px 40px 40px;
         }
         position: relative;
         padding: 0 80px 40px 80px;
         .whitebg-corner{
-          
-          //position: absolute;
-          //right: 0;
-          //top: 0;
+          @include at-query('max-width', $medium) {
+            display: none;
+            //margin-bottom: 0px;
+          }
           display: block;
           float: right;
           width: 400px;
@@ -2422,6 +2427,9 @@ body {
           }
         }
         .featured-image{
+          @include at-query('max-width', $medium) {
+            display: none;
+          }
           position: absolute;
           top: 0;
           right: 0;
@@ -2452,10 +2460,17 @@ body {
           }
         }
         h2{
+          @include at-query('max-width', $medium) {
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
           margin-top: 40px;
           margin-bottom: 40px;
           .icon{
             &.feature-icon{
+              @include at-query('max-width', $medium) {
+                display: none;
+              }
               display: inline-block;
               float: none;
               margin: 0;
@@ -2510,6 +2525,10 @@ body {
           p{
             color: $orange !important;
             a, a:visited{
+              @include at-query('max-width', $medium) {
+                display: block;
+                margin-right: 0 !important;
+              }
               display: inline-block;
               margin: 0 10px 0 0 !important;
               
@@ -2611,11 +2630,19 @@ body {
   &.template-list-collections{
     .wrapper{
       &.main-content{
+        h3{
+          &.h5{
+            @include at-query('max-width', $medium) {
+              text-align: left;
+            }
+          }
+        }
         .orange-bg{
           display: block;
           background: $orange;
           width: 309px;
           height: 232px;
+          @in
           a{
             display: inline-block;
             width: 309px;
@@ -2625,9 +2652,6 @@ body {
             width: 309px;
             vertical-align: middle;
           }
-        }
-        #storefront{
-
         }
       }
     }
@@ -2661,6 +2685,11 @@ body {
       }
     }
     .product-list-thumb{
+      @include at-query('max-width', $medium) {
+        display: block;
+        width: 100%;
+        margin: 0 0 10px 0;
+      }
       width: 40%;
       margin-bottom: 60px;
       margin-right: 60px;
@@ -2712,6 +2741,15 @@ body {
     .prevnext{
       margin-top: 40px !important;
     }
+  }
+
+  // ______________________________________________ //
+
+  // CUSTOM LIGHTBOX STYLES //
+  // ___________________________________________ //
+
+  #sb-container{
+    z-index: 9999;
   }
 
 }
