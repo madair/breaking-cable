@@ -1918,6 +1918,9 @@ body {
     }
 
     .site-nav{
+      .nav-menu-button{
+        display: none;
+      }
       li{
         @include at-query('max-width', $medium) {
           background-image: none;
@@ -1943,6 +1946,9 @@ body {
         overflow: hidden;
         &:hover, &.site-nav-active{
           a, a:visited{
+            @include at-query('max-width', $medium) {
+              color: $brown;
+            }
            color: white;
           }
         }
@@ -2356,6 +2362,9 @@ body {
           color: white;
         }
         h2{
+          @include at-query('max-width', $medium) {
+            font-size: 36px;
+          }
           display: inline-block;
 
           font-size: 56px;
@@ -2479,6 +2488,9 @@ body {
         }
 
         h3{
+          @include at-query('max-width', $medium) {
+            font-size: 24px;
+          }
           margin: 0 0 0 0;
 
           font-size: 40px;
@@ -2486,6 +2498,9 @@ body {
         }
 
         h4{
+          @include at-query('max-width', $medium) {
+            font-size: 18px;
+          }
           margin: 0 0 10px 0;
 
           font-size: 30px;
@@ -2495,6 +2510,9 @@ body {
         ol{
           margin: 0 0 40px 0;
           li{
+            @include at-query('max-width', $medium) {
+              font-size: 18px;
+            }
             list-style-position: inside;
 
             margin: 0 0 20px 0;
@@ -2515,6 +2533,10 @@ body {
         }
 
         img{
+          @include at-query('max-width', $small) {
+            max-width: 100%;
+            margin: 20px 0;
+          }
           max-width: 40%;
           border: 10px solid $orange;
         }
@@ -2560,6 +2582,13 @@ body {
             }
           }
         }
+        th, td{
+          @include at-query('max-width', $small) {
+            padding: 8px;
+            font-size: 13px;
+            line-height: 16px;
+          }
+        }
       }
     }
 
@@ -2576,6 +2605,10 @@ body {
           margin-bottom: 10px;
         }
         img{
+          @include at-query('max-width', $small) {
+            max-width: 100%;
+            margin: 20px 0;
+          }
           max-width: 40%;
         }
       }
@@ -2642,13 +2675,24 @@ body {
           background: $orange;
           width: 309px;
           height: 232px;
-          @in
+          @include at-query('max-width', $small) {
+            width: 100%;
+            height: auto;
+          }
           a{
             display: inline-block;
             width: 309px;
             height: 232px;
+            @include at-query('max-width', $small) {
+              width: 100%;
+              height: auto;
+            }
           }
           img{
+            @include at-query('max-width', $small) {
+              width: 100%;
+              height: auto;
+            }
             width: 309px;
             vertical-align: middle;
           }

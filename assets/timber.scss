@@ -1681,7 +1681,7 @@ body {
   width: 1024px;
   min-height: 100%;
   margin: 0 auto;
-  background: $orange url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/background.jpg?7301) top center no-repeat;
+  background: $orange url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/background.jpg?7676) top center no-repeat;
   a, a:visited{
     text-decoration: none;
   }
@@ -1731,7 +1731,7 @@ body {
     padding: 0;
     vertical-align: middle;
     display: inline-block;
-    background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/sprite.png?7301);
+    background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/sprite.png?7676);
     background-repeat: no-repeat;
     background-size: 304px 718px;
 
@@ -1918,6 +1918,9 @@ body {
     }
 
     .site-nav{
+      .nav-menu-button{
+        display: none;
+      }
       li{
         @include at-query('max-width', $medium) {
           background-image: none;
@@ -1936,13 +1939,16 @@ body {
         line-height: 22px;
         font-weight: normal;
         text-transform: uppercase;
-        background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/sprite.png?7301);
+        background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/sprite.png?7676);
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: 304px 718px;
         overflow: hidden;
         &:hover, &.site-nav-active{
           a, a:visited{
+            @include at-query('max-width', $medium) {
+              color: $brown;
+            }
            color: white;
           }
         }
@@ -2040,7 +2046,7 @@ body {
     }
     padding: 12px 0 20px 0;
 
-    background: transparent url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/footer.jpg?7301) bottom center no-repeat;
+    background: transparent url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/footer.jpg?7676) bottom center no-repeat;
     border-top: none;
 
     .wrapper{
@@ -2293,9 +2299,9 @@ body {
   // HOME PAGE STYLES
   &.template-index{
     @include at-query('max-width', $medium) {
-      background: $light-grey url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/background.jpg?7301) top center no-repeat;
+      background: $light-grey url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/background.jpg?7676) top center no-repeat;
     }
-    background: $light-grey url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/bg.jpg?7301) top center no-repeat;
+    background: $light-grey url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/bg.jpg?7676) top center no-repeat;
     .wrapper{
       &.main-content{
         margin: 0;
@@ -2317,7 +2323,7 @@ body {
           z-index: 1000;
           pointer-events: none;
 
-          background: transparent url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/foreground-bolts.png?7301) top center no-repeat;
+          background: transparent url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/foreground-bolts.png?7676) top center no-repeat;
         }
       }
     }
@@ -2356,6 +2362,9 @@ body {
           color: white;
         }
         h2{
+          @include at-query('max-width', $medium) {
+            font-size: 36px;
+          }
           display: inline-block;
 
           font-size: 56px;
@@ -2435,26 +2444,26 @@ body {
           right: 0;
           display: block;
           &.howitworks{
-            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/interior-howitworks-feature.png?7301);
+            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-howitworks-feature.png?7676);
             width: 437px;
             height: 275px;
 
             margin: 20px 20px 0 0;
           }
           &.services{
-            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/interior-services-feature.png?7301);
+            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-services-feature.png?7676);
             width: 590px;
             height: 257px;
 
             margin-top: -35px;
           }
           &.aboutus{
-            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/interior-aboutus-feature.png?7301);
+            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-aboutus-feature.png?7676);
             width: 434px;
             height: 220px;
           }
           &.stationlist{
-            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/11/assets/interior-stationlist-feature.png?7301);
+            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-stationlist-feature.png?7676);
             width: 271px;
             height: 220px;
           }
@@ -2479,6 +2488,9 @@ body {
         }
 
         h3{
+          @include at-query('max-width', $medium) {
+            font-size: 24px;
+          }
           margin: 0 0 0 0;
 
           font-size: 40px;
@@ -2486,6 +2498,9 @@ body {
         }
 
         h4{
+          @include at-query('max-width', $medium) {
+            font-size: 18px;
+          }
           margin: 0 0 10px 0;
 
           font-size: 30px;
@@ -2495,6 +2510,9 @@ body {
         ol{
           margin: 0 0 40px 0;
           li{
+            @include at-query('max-width', $medium) {
+              font-size: 18px;
+            }
             list-style-position: inside;
 
             margin: 0 0 20px 0;
@@ -2515,6 +2533,10 @@ body {
         }
 
         img{
+          @include at-query('max-width', $small) {
+            max-width: 100%;
+            margin: 20px 0;
+          }
           max-width: 40%;
           border: 10px solid $orange;
         }
@@ -2560,6 +2582,13 @@ body {
             }
           }
         }
+        th, td{
+          @include at-query('max-width', $small) {
+            padding: 8px;
+            font-size: 13px;
+            line-height: 16px;
+          }
+        }
       }
     }
 
@@ -2576,6 +2605,10 @@ body {
           margin-bottom: 10px;
         }
         img{
+          @include at-query('max-width', $small) {
+            max-width: 100%;
+            margin: 20px 0;
+          }
           max-width: 40%;
         }
       }
@@ -2642,13 +2675,24 @@ body {
           background: $orange;
           width: 309px;
           height: 232px;
-          @in
+          @include at-query('max-width', $small) {
+            width: 100%;
+            height: auto;
+          }
           a{
             display: inline-block;
             width: 309px;
             height: 232px;
+            @include at-query('max-width', $small) {
+              width: 100%;
+              height: auto;
+            }
           }
           img{
+            @include at-query('max-width', $small) {
+              width: 100%;
+              height: auto;
+            }
             width: 309px;
             vertical-align: middle;
           }

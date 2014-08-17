@@ -1,6 +1,19 @@
 {
   "current": {
-    "use_logo": true
+    "customer_layout": "customer_area",
+    "twittercard_handle": "",
+    "footer_contact_title": "",
+    "footer_social_title": "",
+    "footer_newsletter_title": "",
+    "mailing_list_form_action": "",
+    "footer_contact_text": "",
+    "ajax_cart_method": "drawer",
+    "use_logo": true,
+    "footer_display_contact": false,
+    "footer_display_social": false,
+    "footer_display_newsletter": false,
+    "cart_notes": false,
+    "ajax_cart": false
   },
   "presets": {
     "Default": {

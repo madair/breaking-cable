@@ -24,9 +24,9 @@
     </ul>
   </li>
   {% else %}
-      <li {% if link.active %}class="site-nav-active"{% endif %}>
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      </li>
+    <li {% if link.active %}class="site-nav-active"{% endif %}>
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    </li>
   {% endif %}
   {% endfor %}
 </ul>
