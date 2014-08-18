@@ -1676,6 +1676,9 @@ body {
   @include at-query('max-width', $medium) {
     width: 100%;
   }
+  @include at-query('max-width', $small) {
+    background: $orange url({{ 'background-mobile.jpg' | asset_url }}) top center no-repeat !important;
+  }
   display: block;
   position: relative;
   width: 1024px;
@@ -1690,6 +1693,9 @@ body {
     &.main-content{
       @include at-query('max-width', $medium) {
         margin-top: 0;
+      }
+      @include at-query('max-width', $small) {
+        padding: 0 !important;
       }
       background-color: rgba($brown,0.8);
       margin: 100px 0 4px 0;
@@ -1872,6 +1878,9 @@ body {
       display: block;
       margin: 0 auto;
     }
+    @include at-query('max-width', $small) {
+
+    }
     display: block;
     width: 170px;
     height: 114px;
@@ -2037,38 +2046,50 @@ body {
     }
     .mobile-menu-button{
       position: relative;
+        input{
+          display: none;
+        }
+        label{
+          display: none;
+        }
       
       @include at-query('max-width', $medium) {
+        display: block;
         position: relative;
 
         /* css only show/hide */
         article {
-            margin-bottom: 40px;
-            position: relative;
-            *zoom: 1;
+          margin-bottom: 40px;
+          position: relative;
+          *zoom: 1;
         }
 
         article:before, article:after {
-            content: "";
-            display: table;
+          content: "";
+          display: table;
         }
 
         article:after { clear: both }
 
         article section:last-of-type {
-            display: none;
-            visibility: hidden;
+          display: none;
+          visibility: hidden;
         }
 
         input[type=checkbox] {
-            border: 0;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            width: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
+          display: block;
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          width: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+        }
+
+        label{
+          display: block;
         }
 
         [for="read_more"] {
@@ -2079,41 +2100,39 @@ body {
           margin: 20px auto 0 auto;
           padding: 10px;
 
-          color: $orange;
+          background: $brown;
+          color: white;
+
           font-family: $headerFontStack;
           font-size: 24px;
           line-height: 22px;
           font-weight: normal;
           text-transform: uppercase;
           text-align: center;
-
-          background: white;
         }
 
         [for="read_more"]:hover {
-          background: $brown;
-          color: white;
         }
 
         [for="read_more"] span:last-of-type {
-            display: none;
-            visibility: hidden;
+          display: none;
+          visibility: hidden;
         }
 
         input[type=checkbox]:checked ~ section {
-            display: block;
-            visibility: visible;
-            width: 100%;
+          display: block;
+          visibility: visible;
+          width: 100%;
         }
 
         input[type=checkbox]:checked ~ [for="read_more"] span:first-of-type {
-            display: none;
-            visibility: hidden;
+          display: none;
+          visibility: hidden;
         }
 
         input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
-            display: block;
-            visibility: visible;
+          display: block;
+          visibility: visible;
         }
       }
     }

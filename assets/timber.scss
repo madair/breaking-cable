@@ -1681,7 +1681,7 @@ body {
   width: 1024px;
   min-height: 100%;
   margin: 0 auto;
-  background: $orange url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/background.jpg?7676) top center no-repeat;
+  background: $orange url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/background.jpg?8003) top center no-repeat;
   a, a:visited{
     text-decoration: none;
   }
@@ -1731,7 +1731,7 @@ body {
     padding: 0;
     vertical-align: middle;
     display: inline-block;
-    background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/sprite.png?7676);
+    background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/sprite.png?8003);
     background-repeat: no-repeat;
     background-size: 304px 718px;
 
@@ -1918,8 +1918,8 @@ body {
     }
 
     .site-nav{
-      .nav-menu-button{
-        display: none;
+      @include at-query('max-width', $medium) {
+        margin-top: 5px;
       }
       li{
         @include at-query('max-width', $medium) {
@@ -1939,7 +1939,7 @@ body {
         line-height: 22px;
         font-weight: normal;
         text-transform: uppercase;
-        background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/sprite.png?7676);
+        background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/sprite.png?8003);
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: 304px 718px;
@@ -2035,6 +2035,100 @@ body {
         }
       } 
     }
+    .mobile-menu-button{
+      position: relative;
+        input{
+          display: none;
+        }
+        label{
+          display: none;
+        }
+      
+      @include at-query('max-width', $medium) {
+        display: block;
+        position: relative;
+
+        /* css only show/hide */
+        article {
+          margin-bottom: 40px;
+          position: relative;
+          *zoom: 1;
+        }
+
+        article:before, article:after {
+          content: "";
+          display: table;
+        }
+
+        article:after { clear: both }
+
+        article section:last-of-type {
+          display: none;
+          visibility: hidden;
+        }
+
+        input[type=checkbox] {
+          display: block;
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          width: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+        }
+
+        label{
+          display: block;
+        }
+
+        [for="read_more"] {
+          position: relative;
+          display: block;
+          width: 90%;
+          height: 35px;
+          margin: 20px auto 0 auto;
+          padding: 10px;
+
+          color: $orange;
+          font-family: $headerFontStack;
+          font-size: 24px;
+          line-height: 22px;
+          font-weight: normal;
+          text-transform: uppercase;
+          text-align: center;
+
+          background: white;
+        }
+
+        [for="read_more"]:hover {
+          background: $brown;
+          color: white;
+        }
+
+        [for="read_more"] span:last-of-type {
+          display: none;
+          visibility: hidden;
+        }
+
+        input[type=checkbox]:checked ~ section {
+          display: block;
+          visibility: visible;
+          width: 100%;
+        }
+
+        input[type=checkbox]:checked ~ [for="read_more"] span:first-of-type {
+          display: none;
+          visibility: hidden;
+        }
+
+        input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
+          display: block;
+          visibility: visible;
+        }
+      }
+    }
   }
 
 
@@ -2046,7 +2140,7 @@ body {
     }
     padding: 12px 0 20px 0;
 
-    background: transparent url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/footer.jpg?7676) bottom center no-repeat;
+    background: transparent url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/footer.jpg?8003) bottom center no-repeat;
     border-top: none;
 
     .wrapper{
@@ -2299,9 +2393,14 @@ body {
   // HOME PAGE STYLES
   &.template-index{
     @include at-query('max-width', $medium) {
-      background: $light-grey url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/background.jpg?7676) top center no-repeat;
+      background: $light-grey url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/background.jpg?8003) top center no-repeat;
+      .wrapper{
+        &.main-content{
+          padding-top: 0;
+        }
+      }
     }
-    background: $light-grey url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/bg.jpg?7676) top center no-repeat;
+    background: $light-grey url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/bg.jpg?8003) top center no-repeat;
     .wrapper{
       &.main-content{
         margin: 0;
@@ -2323,7 +2422,7 @@ body {
           z-index: 1000;
           pointer-events: none;
 
-          background: transparent url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/foreground-bolts.png?7676) top center no-repeat;
+          background: transparent url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/foreground-bolts.png?8003) top center no-repeat;
         }
       }
     }
@@ -2444,26 +2543,26 @@ body {
           right: 0;
           display: block;
           &.howitworks{
-            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-howitworks-feature.png?7676);
+            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-howitworks-feature.png?8003);
             width: 437px;
             height: 275px;
 
             margin: 20px 20px 0 0;
           }
           &.services{
-            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-services-feature.png?7676);
+            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-services-feature.png?8003);
             width: 590px;
             height: 257px;
 
             margin-top: -35px;
           }
           &.aboutus{
-            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-aboutus-feature.png?7676);
+            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-aboutus-feature.png?8003);
             width: 434px;
             height: 220px;
           }
           &.stationlist{
-            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-stationlist-feature.png?7676);
+            background-image: url(//cdn.shopify.com/s/files/1/0364/2961/t/13/assets/interior-stationlist-feature.png?8003);
             width: 271px;
             height: 220px;
           }
