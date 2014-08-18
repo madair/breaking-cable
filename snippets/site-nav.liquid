@@ -4,6 +4,18 @@
   More info on linklists:
     - http://docs.shopify.com/themes/liquid-variables/linklists
 {% endcomment %}
+
+<div class="mobile-menu-button">
+  <article>
+    
+    <input type="checkbox" id="read_more" role="button">
+    <label for="read_more" onclick=""><span>Show Menu</span><span>Hide Menu</span></label>     
+
+    <section>
+    </section>    
+
+    <section>
+
 <ul class="site-nav">
   {% for link in linklists.main-menu.links %}
 
@@ -30,3 +42,8 @@
   {% endif %}
   {% endfor %}
 </ul>
+    </section>
+
+</article>
+
+</div>

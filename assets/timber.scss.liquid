@@ -1918,8 +1918,8 @@ body {
     }
 
     .site-nav{
-      .nav-menu-button{
-        display: none;
+      @include at-query('max-width', $medium) {
+        margin-top: 5px;
       }
       li{
         @include at-query('max-width', $medium) {
@@ -2034,6 +2034,90 @@ body {
           }
         }
       } 
+    }
+    .mobile-menu-button{
+      position: relative;
+      display: none;
+      
+      @include at-query('max-width', $medium) {
+        display: block;
+        position: relative;
+
+        /* css only show/hide */
+        article {
+            margin-bottom: 40px;
+            position: relative;
+            *zoom: 1;
+        }
+
+        article:before, article:after {
+            content: "";
+            display: table;
+        }
+
+        article:after { clear: both }
+
+        article section:last-of-type {
+            display: none;
+            visibility: hidden;
+        }
+
+        input[type=checkbox] {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+        }
+
+        [for="read_more"] {
+          position: relative;
+          display: block;
+          width: 90%;
+          height: 35px;
+          margin: 20px auto 0 auto;
+          padding: 10px;
+
+          color: $orange;
+          font-family: $headerFontStack;
+          font-size: 24px;
+          line-height: 22px;
+          font-weight: normal;
+          text-transform: uppercase;
+          text-align: center;
+          
+          background: white;
+        }
+
+        [for="read_more"]:hover {
+          background: $brown;
+          color: white;
+        }
+
+        [for="read_more"] span:last-of-type {
+            display: none;
+            visibility: hidden;
+        }
+
+        input[type=checkbox]:checked ~ section {
+            display: block;
+            visibility: visible;
+            width: 100%;
+        }
+
+        input[type=checkbox]:checked ~ [for="read_more"] span:first-of-type {
+            display: none;
+            visibility: hidden;
+        }
+
+        input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
+            display: block;
+            visibility: visible;
+        }
+      }
     }
   }
 
@@ -2300,6 +2384,11 @@ body {
   &.template-index{
     @include at-query('max-width', $medium) {
       background: $light-grey url({{ 'background.jpg' | asset_url }}) top center no-repeat;
+      .wrapper{
+        &.main-content{
+          padding-top: 0;
+        }
+      }
     }
     background: $light-grey url({{ 'bg.jpg' | asset_url }}) top center no-repeat;
     .wrapper{
