@@ -1694,9 +1694,6 @@ body {
       @include at-query('max-width', $medium) {
         margin-top: 0;
       }
-      @include at-query('max-width', $small) {
-        padding: 0 !important;
-      }
       background-color: rgba($brown,0.8);
       margin: 100px 0 4px 0;
       padding: 40px 24px;
@@ -1713,6 +1710,11 @@ body {
       padding: 0;
       .wrapper{
         padding: 0 32px 0 0;
+      }
+    }
+    @include at-query('max-width', $small) {
+      .wrapper{
+        padding: 0 0 0 0;
       }
     }
     height: 81px;
@@ -2516,7 +2518,6 @@ body {
     .wrapper{
       &.main-content{
         @include at-query('max-width', $medium) {
-          margin-top: 40px;
           padding: 0 40px 40px 40px;
         }
         position: relative;
@@ -2895,11 +2896,32 @@ body {
 
   // ______________________________________________ //
 
+  // CART //
+  // ___________________________________________ //
+
+  &.template-cart{
+    .wrapper{
+      &.main-content{
+        h2{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+
+
+  // ______________________________________________ //
+
   // CUSTOM LIGHTBOX STYLES //
   // ___________________________________________ //
 
   #sb-container{
     z-index: 9999;
+  }
+
+  input{
+    color: black;
   }
 
 }
